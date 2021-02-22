@@ -6,6 +6,7 @@ public class BoulderControl2 : MonoBehaviour
 
 {
     public GameObject boulder;
+    public GameObject spawnedBoulder;
 
 
     // this code controls where the ball spawner moves when keys are pressed
@@ -22,8 +23,10 @@ public class BoulderControl2 : MonoBehaviour
         // will spawn a new boulder when space is pressed
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            GameObject newBoulder = Instantiate(boulder);
-            newBoulder.transform.position = transform.position;
+            //Destroys the boulder and respawns it
+            Destroy(spawnedBoulder);
+             spawnedBoulder = Instantiate(boulder);
+            spawnedBoulder.transform.position = transform.position;
         }
     }
 }
